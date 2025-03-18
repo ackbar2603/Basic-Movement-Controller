@@ -1,12 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://bi4ohwmh1y1qn"]
+[gd_scene load_steps=11 format=3 uid="uid://bi4ohwmh1y1qn"]
 
 [ext_resource type="Texture2D" uid="uid://p0ot6sqlq7uk" path="res://resources/textures/kenny/PNG/Dark/texture_09.png" id="1_1e8sb"]
 [ext_resource type="Texture2D" uid="uid://dnkix5kwnxqc6" path="res://resources/hdris/kloofendal_48d_partly_cloudy_puresky_2k.hdr" id="2_ft0xb"]
 [ext_resource type="Material" path="res://resources/materials/graygrid_01.tres" id="2_u7l6y"]
 [ext_resource type="Texture2D" uid="uid://bexxnp7bwul11" path="res://resources/textures/kenny/PNG/Red/texture_04.png" id="3_2a86x"]
-[ext_resource type="Texture2D" uid="uid://ckord00xif820" path="res://resources/textures/kenny/PNG/Red/texture_07.png" id="6_7dpx4"]
 [ext_resource type="PackedScene" uid="uid://bj0o03e02d7o4" path="res://scene/player.tscn" id="7_vqq6m"]
-[ext_resource type="Texture2D" uid="uid://chdemw0304lk5" path="res://resources/textures/kenny/PNG/Green/texture_06.png" id="8_8rre2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q8agi"]
 albedo_texture = ExtResource("1_1e8sb")
@@ -15,24 +13,6 @@ uv1_triplanar = true
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qam3b"]
 albedo_texture = ExtResource("3_2a86x")
 uv1_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d6y3x"]
-albedo_texture = ExtResource("6_7dpx4")
-uv1_triplanar = true
-
-[sub_resource type="SphereMesh" id="SphereMesh_715ss"]
-material = SubResource("StandardMaterial3D_d6y3x")
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_ifjdq"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oq35q"]
-albedo_texture = ExtResource("8_8rre2")
-uv1_triplanar = true
-
-[sub_resource type="BoxMesh" id="BoxMesh_xclio"]
-material = SubResource("StandardMaterial3D_oq35q")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_cerxa"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_b11i0"]
 panorama = ExtResource("2_ft0xb")
@@ -82,51 +62,6 @@ radius = 1.3
 height = 2.5
 sides = 32
 material = SubResource("StandardMaterial3D_qam3b")
-
-[node name="ball" type="RigidBody3D" parent="stage/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -5)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="stage/CSGCombiner3D/ball"]
-mesh = SubResource("SphereMesh_715ss")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/CSGCombiner3D/ball"]
-shape = SubResource("SphereShape3D_ifjdq")
-
-[node name="box" type="RigidBody3D" parent="stage/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, -8)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="stage/CSGCombiner3D/box"]
-mesh = SubResource("BoxMesh_xclio")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/CSGCombiner3D/box"]
-shape = SubResource("BoxShape3D_cerxa")
-
-[node name="box2" type="RigidBody3D" parent="stage/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, 2, -8)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="stage/CSGCombiner3D/box2"]
-mesh = SubResource("BoxMesh_xclio")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/CSGCombiner3D/box2"]
-shape = SubResource("BoxShape3D_cerxa")
-
-[node name="box3" type="RigidBody3D" parent="stage/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, 3.5, -8)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="stage/CSGCombiner3D/box3"]
-mesh = SubResource("BoxMesh_xclio")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/CSGCombiner3D/box3"]
-shape = SubResource("BoxShape3D_cerxa")
-
-[node name="box4" type="RigidBody3D" parent="stage/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 3.5, -8)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="stage/CSGCombiner3D/box4"]
-mesh = SubResource("BoxMesh_xclio")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/CSGCombiner3D/box4"]
-shape = SubResource("BoxShape3D_cerxa")
 
 [node name="env" type="Node3D" parent="."]
 
