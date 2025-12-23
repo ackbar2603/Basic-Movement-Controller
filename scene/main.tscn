@@ -1,17 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://bi4ohwmh1y1qn"]
+[gd_scene load_steps=10 format=3 uid="uid://bi4ohwmh1y1qn"]
 
 [ext_resource type="Texture2D" uid="uid://p0ot6sqlq7uk" path="res://resources/textures/kenny/PNG/Dark/texture_09.png" id="1_1e8sb"]
 [ext_resource type="Texture2D" uid="uid://dnkix5kwnxqc6" path="res://resources/hdris/kloofendal_48d_partly_cloudy_puresky_2k.hdr" id="2_ft0xb"]
-[ext_resource type="Material" path="res://resources/materials/graygrid_01.tres" id="2_u7l6y"]
-[ext_resource type="Texture2D" uid="uid://bexxnp7bwul11" path="res://resources/textures/kenny/PNG/Red/texture_04.png" id="3_2a86x"]
+[ext_resource type="Material" uid="uid://befip58p5qe8q" path="res://resources/materials/graygrid_01.tres" id="2_u7l6y"]
+[ext_resource type="PackedScene" uid="uid://b3pskqb8u3t88" path="res://scene/stairs.tscn" id="6_w45pm"]
 [ext_resource type="PackedScene" uid="uid://bj0o03e02d7o4" path="res://scene/player.tscn" id="7_vqq6m"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q8agi"]
 albedo_texture = ExtResource("1_1e8sb")
-uv1_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qam3b"]
-albedo_texture = ExtResource("3_2a86x")
 uv1_triplanar = true
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_b11i0"]
@@ -56,12 +52,8 @@ polygon = PackedVector2Array(-2.96915, -0.0573668, -3, 1, 1, 1, 4, 0, -2.13985, 
 depth = 4.0
 material = ExtResource("2_u7l6y")
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="stage/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, -20)
-radius = 1.3
-height = 2.5
-sides = 32
-material = SubResource("StandardMaterial3D_qam3b")
+[node name="Stairs" parent="stage" instance=ExtResource("6_w45pm")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.237, 0.104184, -19.781)
 
 [node name="env" type="Node3D" parent="."]
 

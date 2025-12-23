@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmtjj0f1b1bvu"]
+
+[ext_resource type="PackedScene" uid="uid://csolxnajw8g14" path="res://resources/materials/low-poly_g17.glb" id="1_qkqs7"]
+
+[node name="Weapon" type="Node3D"]
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_qkqs7")]

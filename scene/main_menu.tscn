@@ -1,0 +1,188 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtcgvevske3gu"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_syq7m"]
+[ext_resource type="FontFile" uid="uid://ba1kv45nsdotl" path="res://resources/fonts/title/Milker.otf" id="2_ler23"]
+[ext_resource type="Theme" uid="uid://bbp8p03utpvq2" path="res://resources/theme/main_menu_button.tres" id="2_riulp"]
+[ext_resource type="FontFile" uid="uid://btfae37biwgon" path="res://resources/fonts/original/Poppins-Bold.ttf" id="2_vcfj5"]
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_riulp")
+script = ExtResource("1_syq7m")
+metadata/_edit_horizontal_guides_ = [214.0, 457.0]
+metadata/_edit_vertical_guides_ = [142.0, 678.0]
+
+[node name="Menu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0980392, 0.121569, 0.14902, 1)
+
+[node name="Title" type="Label" parent="Menu"]
+layout_mode = 1
+offset_left = 144.0
+offset_top = 216.0
+offset_right = 768.0
+offset_bottom = 456.0
+theme_override_fonts/font = ExtResource("2_ler23")
+theme_override_font_sizes/font_size = 128
+text = "The Game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="Menu"]
+layout_mode = 1
+offset_top = 216.0
+offset_right = 679.0
+offset_bottom = 1080.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="newGame" type="Button" parent="Menu/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 52
+text = "New Game"
+alignment = 0
+
+[node name="laodGame" type="Button" parent="Menu/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 52
+text = "Load Game"
+alignment = 0
+
+[node name="options" type="Button" parent="Menu/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 52
+text = "Options"
+alignment = 0
+
+[node name="exit" type="Button" parent="Menu/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 52
+text = "Exit"
+alignment = 0
+
+[node name="Options" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="Options"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0980392, 0.121569, 0.14902, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Options"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -608.0
+offset_top = -42.0
+offset_right = 608.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_right = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Options/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="Options/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 15
+columns = 2
+
+[node name="music" type="Label" parent="Options/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_vcfj5")
+theme_override_font_sizes/font_size = 24
+text = "Music"
+
+[node name="musicSlider" type="HSlider" parent="Options/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="sfx" type="Label" parent="Options/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_vcfj5")
+theme_override_font_sizes/font_size = 24
+text = "SFX"
+
+[node name="sfxSlider" type="HSlider" parent="Options/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="Options" type="Label" parent="Options"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -324.0
+offset_bottom = -199.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_ler23")
+theme_override_font_sizes/font_size = 92
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="back" type="Button" parent="Options"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 144.0
+offset_top = -153.0
+offset_right = 269.0
+offset_bottom = -85.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 36
+text = "Back"
+
+[connection signal="pressed" from="Menu/CenterContainer/VBoxContainer/options" to="Options" method="show"]
+[connection signal="pressed" from="Options/back" to="Options" method="hide"]

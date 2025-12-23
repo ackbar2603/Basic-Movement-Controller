@@ -8,15 +8,15 @@ extends CharacterBody3D
 #endregion
 #region debug
 var _crouchDepth = -0.5
-var _jumpVel = 4.5
+var _jumpVel = 3.5
 var _lerpSpeed = 10
 var _direction = Vector3.ZERO
 #endregion
 #region Speed variables
 var _mainspeed = 4.0
-const _walkSpeed = 6.0
-const _sprintSpeed = 10.0
-const _crouchSpeed = 2.0
+const _walkSpeed = 4.0
+const _sprintSpeed = 5.5
+const _crouchSpeed = 3.0
 #endregion
 #region camera variables
 var _mouseInput : bool = false			#check mouse movement
@@ -35,12 +35,25 @@ var _cameraRotation : Vector3
 @export var _cameraController = Camera3D		#Assigned camera3D in the properties
 #endregion
 
+#region testing
+@export_group("headbob")
+@export var headbob_freq := 2.0
+@export var headbob_ampl := 0.04
+var headbob_time := 0.0
+#endregion
+
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		get_tree().quit()
+
+func headbob(headbob_time):
+	var headbob_position = Vector3.ZERO
+	headbob_position.y = sin(headbob_time * headbob_freq) * headbob_ampl
+	headbob_position.x = sin(headbob_time * headbob_freq / 2) * headbob_ampl
+	return headbob_position
 
 func _unhandled_input(event: InputEvent) -> void:
 	_mouseInput = event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED
@@ -96,6 +109,10 @@ func _physics_process(delta: float) -> void:
 	#region Jump
 		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 			velocity.y = _jumpVel
+	#endregion
+		#region headbob
+	headbob_time += delta * velocity.length() * float(is_on_floor())
+	$Head/Camera3D.transform.origin = headbob(headbob_time)
 	#endregion
 	#region Movement basic
 		# Get the input direction and handle the movement/deceleration.

@@ -1,11 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://bj0o03e02d7o4"]
+[gd_scene load_steps=9 format=3 uid="uid://bj0o03e02d7o4"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_0eltk"]
 [ext_resource type="Texture2D" uid="uid://dh62n5ojlr3ud" path="res://resources/crosshair.png" id="1_22rw5"]
+[ext_resource type="PackedScene" uid="uid://bmtjj0f1b1bvu" path="res://scene/pistol.tscn" id="3_osh8s"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ohdbf"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mg763"]
+albedo_color = Color(0.744839, 0.0129083, 0.278345, 1)
+uv2_triplanar = true
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_50rt5"]
+material = SubResource("StandardMaterial3D_mg763")
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vekhm"]
+height = 1.2
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_jh20v"]
 height = 1.2
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("_cameraController")]
@@ -16,10 +27,17 @@ _cameraController = NodePath("Head/Camera3D")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_ohdbf")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StdCollision"]
+mesh = SubResource("CapsuleMesh_50rt5")
+
 [node name="CrhCollision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+visible = false
 shape = SubResource("CapsuleShape3D_vekhm")
 disabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CrhCollision"]
+mesh = SubResource("CapsuleMesh_jh20v")
 
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
@@ -34,6 +52,9 @@ offset_bottom = 560.0
 texture = ExtResource("1_22rw5")
 expand_mode = 2
 stretch_mode = 4
+
+[node name="Weapon" parent="Head/Camera3D" instance=ExtResource("3_osh8s")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.320675, -0.323146, -0.614273)
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 target_position = Vector3(0, 2, 0)

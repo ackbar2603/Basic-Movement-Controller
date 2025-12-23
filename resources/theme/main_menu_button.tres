@@ -1,0 +1,24 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://bbp8p03utpvq2"]
+
+[ext_resource type="FontFile" uid="uid://cnnktdgxbnqqg" path="res://resources/fonts/original/Poppins-Light.ttf" id="1_yn0iu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vviim"]
+content_margin_left = 6.0
+content_margin_right = 6.0
+bg_color = Color(0.6, 0.6, 0.6, 0.352941)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q5kvx"]
+content_margin_left = 6.0
+content_margin_right = 6.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dqmle"]
+content_margin_left = 6.0
+content_margin_right = 6.0
+bg_color = Color(0.255659, 0.255659, 0.255659, 1)
+
+[resource]
+Button/fonts/font = ExtResource("1_yn0iu")
+Button/styles/hover = SubResource("StyleBoxFlat_vviim")
+Button/styles/normal = SubResource("StyleBoxFlat_q5kvx")
+Button/styles/pressed = SubResource("StyleBoxFlat_dqmle")

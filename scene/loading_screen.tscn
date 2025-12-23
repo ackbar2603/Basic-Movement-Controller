@@ -1,0 +1,79 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4dlr7uxk1d0k"]
+
+[ext_resource type="Script" path="res://scripts/loading_screen.gd" id="1_86dhm"]
+[ext_resource type="FontFile" uid="uid://btfae37biwgon" path="res://resources/fonts/original/Poppins-Bold.ttf" id="2_jkxmi"]
+
+[node name="LoadingScreen" type="Control" node_paths=PackedStringArray("loading_bar", "percentage_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_86dhm")
+loading_bar = NodePath("ProgressBar")
+percentage_label = NodePath("percentage_label")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0980392, 0.121569, 0.14902, 1)
+
+[node name="loading" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.5
+offset_top = -139.0
+offset_right = 105.5
+offset_bottom = -79.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_jkxmi")
+theme_override_font_sizes/font_size = 42
+text = "Loading ..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="percentage_label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.5
+offset_top = 94.0
+offset_right = 46.5
+offset_bottom = 148.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_jkxmi")
+theme_override_font_sizes/font_size = 38
+text = "100%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -509.0
+offset_top = -22.0
+offset_right = 509.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 1.0
+step = 0.0
+show_percentage = false
